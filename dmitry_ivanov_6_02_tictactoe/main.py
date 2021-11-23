@@ -13,8 +13,8 @@
 import time
 
 # custom modules
-from packages.tictactoe.game import board_render, game_status
-from packages.tictactoe.move import move_player, move_computer, make_move
+from packages.tictactoe import game
+from packages.tictactoe import move
 
 ###########################
 ###   Main game logic   ###
@@ -46,14 +46,14 @@ print('''┌──────────────────────�
 print("             . . .             ")
 time.sleep(1)
 # first computer's move
-board = make_move(board, "X", 5)
-board_render(board)
+board = move.make(board, "X", 5)
+game.print_board(board)
 
 move_count = 2
 while True:
 
     # checking game status for game finish condition
-    status = game_status(board)
+    status = game.status(board)
     if status == "tie":
         print('''╒═════════════════════════════╕
 │                             │
@@ -81,12 +81,12 @@ while True:
 
     if move_count % 2 == 0:
         time.sleep(1)
-        board = move_player(board)
+        board = move.player(board)
         time.sleep(0.2)
     else:
         time.sleep(1.5)
-        board = move_computer(board)
+        board = move.computer(board)
         time.sleep(1)
-    board_render(board)
+    game.print_board(board)
 
     move_count += 1

@@ -1,4 +1,4 @@
-def board_render(board):
+def print_board(board):
     # prints current state of the board to the console
     print("╭─────────┬─────────┬─────────╮")
     for i in range(len(board)):
@@ -10,7 +10,7 @@ def board_render(board):
             print("├─────────┼─────────┼─────────┤")
     print("╰─────────┴─────────┴─────────╯")
 
-def game_status(board):
+def status(board):
     # checks board for the game status
     # returns 'continue' if there is no game result
     #         'tie' for a tie, 'win' for player's
