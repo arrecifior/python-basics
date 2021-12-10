@@ -139,6 +139,7 @@ class Todo:
         
         elif put == 5:
             print("Closing the program...")
+            self.conn.close()
 
         else:
             pass
